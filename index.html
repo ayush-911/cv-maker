@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI CV Maker – Step Wizard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+    <div class="nav-title">AI CV MAKER</div>
+    <div class="nav-headings">
+        <span>Personal Info</span>
+        <span>Skills</span>
+        <span>Experience</span>
+        <span>Generate CV</span>
+    </div>
+</nav>
+
+<div class="step-container">
+
+    <!-- STEP 1 -->
+    <div class="step-page active" id="step1">
+        <h1>Step 1: Personal Details</h1>
+
+        <input id="name" placeholder="Full Name">
+        <input id="role" placeholder="Job Title">
+        <input id="email" placeholder="Email">
+        <input id="phone" placeholder="Phone">
+
+        <button onclick="nextStep(2)">Next →</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-page" id="step2">
+        <h1>Step 2: Summary & Skills</h1>
+
+        <textarea id="summary" placeholder="Professional Summary"></textarea>
+        <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+
+        <button onclick="prevStep(1)">← Back</button>
+        <button onclick="nextStep(3)">Next →</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-page" id="step3">
+        <h1>Step 3: Education & Experience</h1>
+
+        <textarea id="edu" placeholder="Education"></textarea>
+        <textarea id="exp" placeholder="Experience"></textarea>
+
+        <button onclick="prevStep(2)">← Back</button>
+        <button onclick="nextStep(4)">Next →</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-page" id="step4">
+        <h1>Step 4: Upload Photo</h1>
+
+        <input type="file" id="photoUpload">
+        <img id="preview" style="display:none; width:140px; height:140px; border-radius:50%">
+
+        <button onclick="prevStep(3)">← Back</button>
+        <button onclick="generateCV()">Finish & Show CV</button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step-page" id="step5">
+        <h1>Your Professional CV</h1>
+        <div id="cv-output"></div>
+
+        <button onclick="prevStep(4)">← Back</button>
+        <button onclick="window.print()">Download PDF</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
